@@ -94,7 +94,7 @@ function logout() {
 }
 </script>
   <script>
-let claims = [];
+let claims = JSON.parse(localStorage.getItem("claims")) || [];
 
 function showForm() {
   document.getElementById("claimForm").style.display = "block";
@@ -114,6 +114,7 @@ function addClaim() {
   };
 
   claims.push(claim);
+  localStorage.setItem("claims", JSON.stringify(claims));
   displayClaims();
 
   document.getElementById("claimForm").style.display = "none";
@@ -135,6 +136,8 @@ function displayClaims() {
 
   document.getElementById("cases").innerHTML = html;
 }
+displayClaims();
 </script>
+
 </body>
 </html>
