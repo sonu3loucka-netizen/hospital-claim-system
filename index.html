@@ -9,6 +9,26 @@ if(!localStorage.getItem("loggedIn")) {
   window.location.href = "login.html";
 }
 </script>
+      <button onclick="showForm()" style="margin:20px 0; padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">
+  + Add New Claim
+</button>
+      <div id="claimForm" style="display:none; background:white; padding:20px; border-radius:10px; margin-bottom:20px;">
+
+  <h3>New Claim</h3>
+
+  <input type="text" id="name" placeholder="Patient Name"><br><br>
+  <input type="text" id="hospital" placeholder="Hospital Name"><br><br>
+  <input type="text" id="policy" placeholder="Policy Number"><br><br>
+
+  <select id="status">
+    <option>Pending</option>
+    <option>Approved</option>
+    <option>Query Raised</option>
+  </select><br><br>
+
+  <button onclick="addClaim()">Save Claim</button>
+<div id="cases"></div>
+</div>
       font-family: Arial;
       background: #eef2f7;
       padding: 20px;
@@ -50,6 +70,49 @@ if(!localStorage.getItem("loggedIn")) {
 function logout() {
   localStorage.removeItem("loggedIn");
   window.location.href = "login.html";
+}
+</script>
+  <script>
+let claims = [];
+
+function showForm() {
+  document.getElementById("claimForm").style.display = "block";
+}
+
+function addClaim() {
+  let name = document.getElementById("name").value;
+  let hospital = document.getElementById("hospital").value;
+  let policy = document.getElementById("policy").value;
+  let status = document.getElementById("status").value;
+
+  let claim = {
+    name,
+    hospital,
+    policy,
+    status
+  };
+
+  claims.push(claim);
+  displayClaims();
+
+  document.getElementById("claimForm").style.display = "none";
+}
+
+function displayClaims() {
+  let html = "";
+
+  claims.forEach(c => {
+    html += `
+      <div class="card">
+        <h3>${c.name}</h3>
+        <p>Hospital: ${c.hospital}</p>
+        <p>Policy: ${c.policy}</p>
+        <p>Status: ${c.status}</p>
+      </div>
+    `;
+  });
+
+  document.getElementById("cases").innerHTML = html;
 }
 </script>
 </body>
