@@ -27,7 +27,7 @@ if(!localStorage.getItem("loggedIn")) {
   </select><br><br>
 
   <button onclick="addClaim()">Save Claim</button>
-<div id="cases"></div>
+
 </div>
       font-family: Arial;
       background: #eef2f7;
@@ -51,6 +51,27 @@ if(!localStorage.getItem("loggedIn")) {
     Logout
   </button>
 </div>
+  <button onclick="showForm()" style="margin:20px 0; padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">
+  + Add New Claim
+</button>
+  <div id="claimForm" style="display:none; background:white; padding:20px; border-radius:10px; margin-bottom:20px;">
+
+  <h3>New Claim</h3>
+
+  <input type="text" id="name" placeholder="Patient Name"><br><br>
+  <input type="text" id="hospital" placeholder="Hospital Name"><br><br>
+  <input type="text" id="policy" placeholder="Policy Number"><br><br>
+
+  <select id="status">
+    <option>Pending</option>
+    <option>Approved</option>
+    <option>Query Raised</option>
+  </select><br><br>
+
+  <button onclick="addClaim()">Save Claim</button>
+
+</div>
+  <div id="cases"></div>
 
 <div class="card">
   <h3>Rahul Sharma</h3>
