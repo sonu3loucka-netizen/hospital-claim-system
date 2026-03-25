@@ -25,7 +25,12 @@ if(!localStorage.getItem("loggedIn")) {
 
 <body>
 
-<h1>🏥 Insurance Claim System</h1>
+<div style="display:flex; justify-content:space-between; align-items:center;">
+  <h1>🏥 Insurance Claim System</h1>
+  <button onclick="logout()" style="padding:8px 15px; background:red; color:white; border:none; border-radius:5px;">
+    Logout
+  </button>
+</div>
 
 <div class="card">
   <h3>Rahul Sharma</h3>
@@ -41,6 +46,11 @@ if(!localStorage.getItem("loggedIn")) {
   <h3>Amit Patel</h3>
   <p>Status: ⚠️ Query Raised</p>
 </div>
-
+<script>
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+</script>
 </body>
 </html>
