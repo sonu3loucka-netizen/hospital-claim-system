@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Claim System</title>
+</head>
 
+<body style="font-family: Arial; background:#f5f5f5;">
+
+  <h1>🏥 Claim Management Dashboard</h1>
+
+  <h2>Welcome Employee</h2>
+
+  <button onclick="showCases()">View Claims</button>
+
+  <div id="cases"></div>
+
+  <script>
+    function showCases() {
+      document.getElementById("cases").innerHTML = `
+        <h3>Sample Claims</h3>
+        <ul>
+          <li>Rahul Sharma - Approved</li>
+          <li>Priya Singh - Pending</li>
+          <li>Amit Patel - Query Raised</li>
+        </ul>
+      `;
+    }
+  </script>
+
+</body>
+</html>
